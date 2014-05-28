@@ -42,6 +42,10 @@ if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
 
+if [ -f ~/git-completion.bash ]; then
+  . ~/git-completion.bash
+fi
+
 # Play
 PLAY_HOME=/usr/local/bin/play
 PATH=$PATH:$PLAY_HOME
@@ -69,9 +73,6 @@ export PLAY_HOME CLASSPATH PATH
 
 # local bin dir
 export PATH="/Users/hoitomt/bin:$PATH"
-
-# map idg commands
-eval "$($HOME/source/idg/bin/idg init -)"
 
 # Binstubs
 export PATH=./.bundle/binstubs:$PATH

@@ -3,7 +3,7 @@ alias c="clear"
 alias ip="ifconfig | grep -oE 'inet (.*) netmask .* broadcast' | awk '{print $2}'"
 
 # Code
-alias cdc="cd ~/Code"
+alias cdc="cd ~/code"
 
 # Otozip
 alias cdo="cd ~/Code/Otozip/otozip"
