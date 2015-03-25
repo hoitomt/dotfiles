@@ -1,6 +1,6 @@
 . ~/.bash_aliases
 
-PATH="/usr/local/bin:$PATH"
+PATH="/usr/local/git/bin:/usr/local/bin:$PATH"
 PATH="/Users/hoitomt/Dropbox/bin:$PATH"
 
 function parse_git_branch () {
@@ -57,18 +57,6 @@ PATH=$PATH:$SCALA_HOME
 # sbin for nginx
 PATH=$PATH:/usr/local/sbin
 
-# Mysql
-PATH=$PATH:/usr/local/mysql/bin
-
-# Node
-PATH=$PATH:/usr/local/share/npm/bin
-
-# Android
-PATH=$PATH:$HOME/bin/android/sdk/tools
-
-#JBoss
-JBOSS_HOME=/Users/hoitomt/local/vendor/jboss-as-7.1.1.Final
-
 export PLAY_HOME CLASSPATH PATH
 
 # local bin dir
@@ -81,4 +69,5 @@ export PATH=./.bundle/binstubs:$PATH
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # rbenv
+export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"

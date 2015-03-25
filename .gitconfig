@@ -10,7 +10,7 @@
 	name = Michael Hoitomt
 	email = mhoitomt@primedia.com
 [core]
-	excludesfile = /Users/hoitomt/.gitignore
+	excludesfile = /Users/hoitomt/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
