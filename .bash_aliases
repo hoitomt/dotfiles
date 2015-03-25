@@ -25,9 +25,12 @@ alias bu="b update"
 alias be="b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
+# Bundler Rails
+alias bails="be rails"
+alias bake="be rake"
+
 # Git
 alias g="git"
 alias gc="g checkout"
 alias gcd="gc dev"
 alias glg="g lg"
-alias bake="be rake"
