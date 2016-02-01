@@ -1,8 +1,5 @@
 . ~/.bash_aliases
 
-PATH="/usr/local/git/bin:/usr/local/bin:$PATH"
-PATH="/Users/hoitomt/Dropbox/bin:$PATH"
-
 function parse_git_branch () {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -46,28 +43,23 @@ if [ -f ~/git-completion.bash ]; then
   . ~/git-completion.bash
 fi
 
-# Play
-PLAY_HOME=/usr/local/bin/play
-PATH=$PATH:$PLAY_HOME
-
-# Scala
-SCALA_HOME=/usr/bin/scala/bin
-PATH=$PATH:$SCALA_HOME
-
 # sbin for nginx
-PATH=$PATH:/usr/local/sbin
+# export PATH=$PATH:/usr/local/sbin
 
-export PLAY_HOME CLASSPATH PATH
+export PATH="/usr/local/git/bin:$PATH"
 
 # local bin dir
-export PATH="/Users/hoitomt/bin:$PATH"
+export PATH="/Users/mhoitomt/bin:$PATH"
+
+# Dropbox
+export PATH="/Users/mhoitomt/Dropbox/bin:$PATH"
 
 # Binstubs
-export PATH=./.bundle/binstubs:$PATH
+export PATH="$HOME/.bundle/binstubs:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
