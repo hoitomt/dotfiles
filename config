@@ -1,9 +1,0 @@
-Host bot
-  HostName bot-01.lab.primedia.com
-  User mhoitomt
-Host heroku
-  HostName heroku.com
-  IdentityFile ~/.ssh/id_rsa
-Host githost.rent.com
-  HostName githost.rent.com
-  IdentityFile ~/.ssh/rent
