@@ -8,7 +8,7 @@
 	enabled = 1
 [user]
 	name = Michael Hoitomt
-	email = mhoitomt@primedia.com
+	email = mike.hoitomt@gmail.com
 [core]
 	excludesfile = /Users/hoitomt/.gitignore_global
 [difftool "sourcetree"]

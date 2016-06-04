@@ -1,21 +1,11 @@
-alias c="clear"
+# File operations
+alias ll="ls -la"
 
+# Determine current IP address
 alias ip="ifconfig | grep -oE 'inet (.*) netmask .* broadcast' | awk '{print $2}'"
 
 # Code
 alias cdc="cd ~/code"
-
-# Otozip
-alias cdo="cd ~/Code/Otozip/otozip"
-
-# Primedia Source
-alias cds="cd ~/source"
-
-# Nginx Paths
-alias ngp="nginxp.sh"
-
-# Start Memcached
-alias memcached_start="/usr/local/opt/memcached/bin/memcached"
 
 # Bundler
 alias b="bundle"

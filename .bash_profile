@@ -25,17 +25,13 @@ export PS1="\$(dev_info)$PS1"
 # iTerm2 Set the tab title
 export PROMPT_COMMAND='echo -ne "\\033]0;${PWD/#$HOME/~}\\007"'
 
-
-# sbin for nginx
-# export PATH=$PATH:/usr/local/sbin
-
 export PATH="/usr/local/git/bin:$PATH"
 
 # local bin dir
-export PATH="/Users/mhoitomt/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # Dropbox
-export PATH="/Users/mhoitomt/Dropbox/bin:$PATH"
+export PATH="$HOME/Dropbox/bin:$PATH"
 
 # Binstubs
 export PATH="$HOME/.bundle/binstubs:$PATH"
