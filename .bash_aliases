@@ -1,11 +1,13 @@
-# File operations
-alias ll="ls -la"
-
 # Determine current IP address
 alias ip="ifconfig | grep -oE 'inet (.*) netmask .* broadcast' | awk '{print $2}'"
+alias ll="ls -la"
 
 # Code
-alias cdc="cd ~/code"
+alias cdc="cd ~/Code"
+alias cdg="cd ~/golang/src/github.com/Lookingglass"
+
+# Start Memcached
+alias memcached_start="/usr/local/opt/memcached/bin/memcached"
 
 # Bundler
 alias b="bundle"
@@ -18,9 +20,11 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 # Bundler Rails
 alias bails="be rails"
 alias bake="be rake"
+alias bspec="be rspec"
 
 # Git
 alias g="git"
 alias gc="g checkout"
-alias gcd="gc dev"
+alias gcm="gc master"
+alias gcd="gc develop"
 alias glg="g lg"
