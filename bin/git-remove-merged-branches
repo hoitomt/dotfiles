@@ -1,2 +1,7 @@
 #! /usr/bin/env sh
-git branch --merged dev | grep -v -E '^\s*(\*\s)?(dev|qa)$' | xargs git branch -d
+if [ -z "$1" ]; then
+  echo "Please specify a branch"
+  echo "Usage: git remove-merged-branches <branch name>"
+  exit
+fi
+git branch --merged $1 | grep -v -E "^\s*(\*\s)?(master|develop|$1)$" | xargs git branch -d

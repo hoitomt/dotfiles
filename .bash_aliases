@@ -11,7 +11,7 @@ alias memcached_start="/usr/local/opt/memcached/bin/memcached"
 
 # Bundler
 alias b="bundle"
-alias bi="b install --path vendor"
+alias bi="b install"
 alias bil="bi --local"
 alias bu="b update"
 alias be="b exec"
@@ -28,3 +28,11 @@ alias gc="g checkout"
 alias gcm="gc master"
 alias gcd="gc develop"
 alias glg="g lg"
+
+# Docker
+alias dc="docker-compose"
+alias dce="dc exec"
+alias dcew="dce web"
+alias dcbe="dcew bundle exec"
+alias dake="dcew bundle exec rake"
+alias dails="dcew bundle exec rails"

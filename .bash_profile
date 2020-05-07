@@ -1,4 +1,6 @@
-. ~/.bash_aliases
+source ~/.bash_aliases
+
+[ -r ~/.bashrc ] && source ~/.bashrc
 
 # Colors
 export CLICOLOR=1
@@ -30,6 +32,9 @@ function cdgo () {
 # Git Completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
+# OSX Catalina shows a message about zsh being the default shell
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 PS1="$GREEN\$(parse_git_branch) $NO_COLOUR\W $ "
 export PS1="\$(dev_info)$PS1"
 
@@ -37,7 +42,7 @@ export PS1="\$(dev_info)$PS1"
 export PROMPT_COMMAND='echo -ne "\\033]0;${PWD/#$HOME/~}\\007"'
 
 # sbin for nginx
-# export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/usr/local/sbin
 
 export PATH="$PATH:/usr/local/git/bin"
 
@@ -52,9 +57,9 @@ export PATH="$PATH:$HOME/.bundle/binstubs"
 
 # Go by Homebrew
 export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
+# export GOROOT=/usr/local/bin/go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+# export PATH=$PATH:$GOROOT/bin
 
 # RabbitMQ by Homebrew
 export PATH="$PATH:/usr/local/opt/rabbitmq/sbin"
@@ -73,9 +78,6 @@ export PATH="$PATH:/usr/local/sbin"
 # Java Home
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-# NiFi Repo
-export NIFI_REPO_PATH="/Users/mhoitomt/Code/cip-nifi"
-
 # Postgres
 export PATH="$PATH:/usr/local/opt/postgresql@9.4/bin"
 export PATH="$PATH:/usr/local/opt/postgresql@9.4/include"
@@ -85,3 +87,19 @@ export LDFLAGS="-L/usr/local/opt/postgresql@9.4/lib"
 export CPPFLAGS="-I/usr/local/opt/postgresql@9.4/include"
 export PKG_CONFIG_PATH="/usr/local/opt/postgresql@9.4/lib/pkgconfig"
 export NIFI_HOME="/Users/mhoitomt/Code/nifi-1.4.0"
+
+# pyenv
+eval "$(pyenv init -)"
+
+# pyenv virtualenv
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# Created by `userpath` on 2019-12-05 16:37:12
+export PATH="$PATH:/Users/mhoitomt/.local/bin"
+
+# Python Catalina Hack
+# export DYLD_LIBRARY_PATH=/usr/local/Cellar/openssl/1.0.2t/lib
+
+# Used by ruby build to keep up to date with ssl
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
