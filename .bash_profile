@@ -35,6 +35,9 @@ function cdgo () {
 # OSX Catalina shows a message about zsh being the default shell
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# Created by `userpath` on 2019-12-05 16:37:12
+export PATH="$PATH:/Users/mhoitomt/.local/bin"
+
 PS1="$GREEN\$(parse_git_branch) $NO_COLOUR\W $ "
 export PS1="\$(dev_info)$PS1"
 
@@ -48,9 +51,6 @@ export PATH="$PATH:/usr/local/git/bin"
 
 # local bin dir
 export PATH="$PATH:/Users/mhoitomt/bin"
-
-# Dropbox
-export PATH="$PATH:/Users/mhoitomt/Dropbox/bin"
 
 # Binstubs
 export PATH="$PATH:$HOME/.bundle/binstubs"
@@ -78,28 +78,11 @@ export PATH="$PATH:/usr/local/sbin"
 # Java Home
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-# Postgres
-export PATH="$PATH:/usr/local/opt/postgresql@9.4/bin"
-export PATH="$PATH:/usr/local/opt/postgresql@9.4/include"
-
-# Fix Postgres for hummingbird (C-compilers)
-export LDFLAGS="-L/usr/local/opt/postgresql@9.4/lib"
-export CPPFLAGS="-I/usr/local/opt/postgresql@9.4/include"
-export PKG_CONFIG_PATH="/usr/local/opt/postgresql@9.4/lib/pkgconfig"
-export NIFI_HOME="/Users/mhoitomt/Code/nifi-1.4.0"
-
 # pyenv
 eval "$(pyenv init -)"
 
 # pyenv virtualenv
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
-# Created by `userpath` on 2019-12-05 16:37:12
-export PATH="$PATH:/Users/mhoitomt/.local/bin"
-
-# Python Catalina Hack
-# export DYLD_LIBRARY_PATH=/usr/local/Cellar/openssl/1.0.2t/lib
-
 # Used by ruby build to keep up to date with ssl
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
