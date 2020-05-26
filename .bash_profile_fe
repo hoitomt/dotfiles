@@ -35,7 +35,7 @@ export PS1="\$(dev_info)$PS1"
 export PROMPT_COMMAND='echo -ne "\\033]0;${PWD/#$HOME/~}\\007"'
 
 # # local bin dir
-# export PATH="$PATH:/Users/mikehoitomt/bin"
+export PATH="$PATH:/Users/mikehoitomt/bin"
 
 # # Go by Homebrew
 # export GOPATH=$HOME/golang
@@ -48,9 +48,6 @@ eval "$(rbenv init -)"
 
 # # Autoenv
 source /usr/local/opt/autoenv/activate.sh
-
-# # Used by ruby build to keep up to date with ssl
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 
 # # Initialize Node and NVM in every directory
 # export NVM_DIR="/Users/mikehoitomt/.nvm"
