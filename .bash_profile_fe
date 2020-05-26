@@ -1,0 +1,69 @@
+source ~/.bash_aliases
+
+[ -r ~/.bashrc ] && source ~/.bashrc
+
+# Colors
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[0;34m\]"
+GREEN="\[\033[0;32m\]"
+NO_COLOUR="\[\033[0m\]"
+
+# Command Prompt
+function parse_git_branch () {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+function dev_info {
+  echo "[$(ruby -e 'print RUBY_VERSION')]"
+}
+
+# Git Completion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+# OSX Catalina shows a message about zsh being the default shell
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Created by `userpath` on 2019-12-05 16:37:12
+export PATH="$PATH:/Users/mikehoitomt/.local/bin"
+
+PS1="$GREEN\$(parse_git_branch) $NO_COLOUR\W $ "
+export PS1="\$(dev_info)$PS1"
+
+# iTerm2 Set the tab title
+export PROMPT_COMMAND='echo -ne "\\033]0;${PWD/#$HOME/~}\\007"'
+
+# # local bin dir
+# export PATH="$PATH:/Users/mikehoitomt/bin"
+
+# # Go by Homebrew
+# export GOPATH=$HOME/golang
+# # export GOROOT=/usr/local/bin/go
+# export PATH=$PATH:$GOPATH/bin
+# # export PATH=$PATH:$GOROOT/bin
+
+# rbenv
+eval "$(rbenv init -)"
+
+# # Autoenv
+source /usr/local/opt/autoenv/activate.sh
+
+# # Used by ruby build to keep up to date with ssl
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
+
+# # Initialize Node and NVM in every directory
+# export NVM_DIR="/Users/mikehoitomt/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# # Run nvm use every time we enter a directory.
+# enter_directory() {
+#   if [[ $PWD == $PREV_PWD ]]; then
+#     return
+#   fi
+
+#   PREV_PWD=$PWD
+#   [[ -f ".nvmrc" ]] && nvm use
+# }
+
+# export PROMPT_COMMAND=enter_directory
