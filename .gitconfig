@@ -8,30 +8,10 @@
 	enabled = 1
 [user]
 	name = Mike Hoitomt
-	email = mhoitomt@lgscout.com
+	email = mike@hoitomt.com
 [core]
 	excludesfile = /Users/mhoitomt/.gitignore_global
 [alias]
 	lg = log --oneline
 [commit]
 	template = /Users/mhoitomt/.stCommitMsg
-[diff]
-  tool = meld
-[difftool]
-  prompt = false
-[difftool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
-[merge]
-  tool = meld
-[mergetool]
-  prompt = false
-[mergetool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
