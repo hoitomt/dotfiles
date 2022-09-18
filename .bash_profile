@@ -36,7 +36,7 @@ function cdgo () {
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Created by `userpath` on 2019-12-05 16:37:12
-export PATH="$PATH:/Users/mhoitomt/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 PS1="$GREEN\$(parse_git_branch) $NO_COLOUR\W $ "
 export PS1="\$(dev_info)$PS1"
@@ -50,7 +50,7 @@ export PATH=$PATH:/usr/local/sbin
 export PATH="$PATH:/usr/local/git/bin"
 
 # local bin dir
-export PATH="$PATH:/Users/mhoitomt/bin"
+export PATH="$PATH:$HOME/bin"
 
 # Binstubs
 export PATH="$PATH:$HOME/.bundle/binstubs"
@@ -70,7 +70,9 @@ export PATH="$PATH:/usr/local/heroku/bin"
 # rbenv
 export PATH="$PATH:$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
-source /usr/local/opt/autoenv/activate.sh
+
+# autoenv by homebrew
+source /opt/homebrew/opt/autoenv/activate.sh
 
 # Added by Homebrew
 export PATH="$PATH:/usr/local/sbin"
@@ -84,21 +86,23 @@ eval "$(pyenv init -)"
 # pyenv virtualenv
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
-# Used by ruby build to keep up to date with ssl
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
-
-# Initialize Node and NVM in every directory
-export NVM_DIR="/Users/mhoitomt/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# Run nvm use every time we enter a directory.
-enter_directory() {
-  if [[ $PWD == $PREV_PWD ]]; then
-    return
-  fi
-
-  PREV_PWD=$PWD
-  [[ -f ".nvmrc" ]] && nvm use
-}
-
 export PROMPT_COMMAND=enter_directory
+
+# Homebrew autocompletions
+if type brew &>/dev/null
+then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
