@@ -55,6 +55,10 @@ export PATH="$PATH:$HOME/bin"
 # Binstubs
 export PATH="$PATH:$HOME/.bundle/binstubs"
 
+# Homebrew Paths
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/michaelhoitomt/.bash_profile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Go by Homebrew
 export GOPATH=$HOME/golang
 # export GOROOT=/usr/local/bin/go
@@ -86,8 +90,6 @@ eval "$(pyenv init -)"
 # pyenv virtualenv
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
-export PROMPT_COMMAND=enter_directory
-
 # Homebrew autocompletions
 if type brew &>/dev/null
 then
@@ -106,3 +108,4 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(/opt/homebrew/bin/brew shellenv)"
